@@ -46,9 +46,9 @@ public class BeanMapper {
      * Maps the properties of <code>sourceObject</code> onto
      * <code>destinationObject</code>.
      *
-     * @param sourceObject
+     * @param source
      *            the object from which to read the properties
-     * @param destinationObject
+     * @param dest
      *            the object onto which the properties should be mapped
      */
     public static <S, D> void map(S source, D dest) {
