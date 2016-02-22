@@ -61,16 +61,9 @@ public class TestJDateTime {
     }
     @Test
     public void testFormatter(){
-     /*   JDateTime jdt = new JDateTime();
-        JdtFormatter fmt = new DefaultFormatter();
-        fmt.convert(jdt, "YYYY-MM.DD");         // external conversion
-
-        JdtFormat format = new JdtFormat(new DefaultFormatter(), "YYYY+DD+MM");
-        jdt.toString(format);
-        format.convert(jdt);
-
-        DateFormat df = new SimpleDateFormat();
-        df.format(jdt.convertToDate());         // date formatter*/
+        JDateTime jdt = new JDateTime();
+        jdt.parse(jdt.toString("YYYY-MM-DD"));
+        System.out.println(jdt.convertToDate());
     }
 
 
