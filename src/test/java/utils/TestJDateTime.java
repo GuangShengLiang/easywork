@@ -1,5 +1,6 @@
 package utils;
 
+import com.github.base.utils.DateTimeUtils;
 import jodd.datetime.JDateTime;
 import jodd.datetime.format.JdtFormat;
 import jodd.datetime.format.JdtFormatter;
@@ -9,7 +10,14 @@ import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author lgs
@@ -64,6 +72,53 @@ public class TestJDateTime {
         JDateTime jdt = new JDateTime();
         jdt.parse(jdt.toString("YYYY-MM-DD"));
         System.out.println(jdt.convertToDate());
+    }
+
+    @Test
+    public void testGetYestory(){
+        DateTimeUtils.getYesterdayDate();
+        JDateTime jdt = new JDateTime();
+        int day = 7;
+        jdt.addDay(day - jdt.getDayOfWeek());
+        System.out.print(jdt.toString());
+    }
+
+    @Test
+    public void testE(){
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        final CountDownLatch oneToMore = new CountDownLatch(4);
+        for (int i=0; i<4;i++){
+            executorService.execute(new Runnable() {
+                public void run() {
+                    try {
+                        Thread.currentThread().sleep(2000l);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(Thread.currentThread().getName());
+                    oneToMore.countDown();
+                }
+            });
+        }
+
+        try {
+            oneToMore.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        executorService.shutdown();
+      /*  try {
+            executorService.awaitTermination(1, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        System.out.print("end");
+
+    }
+    @Test
+    public void testList(){
+        List list = new LinkedList();
+        List list1 = list.subList(0,10);
     }
 
 

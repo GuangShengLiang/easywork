@@ -52,4 +52,13 @@ public class TestGuava {
         System.out.println(sortedCopy);
 
     }
+    @Test
+    public void testPartition(){
+        List<Long> parentList = Lists.newLinkedList();
+        for (long i =0; i< 123;i++){
+            parentList.add(i);
+        }
+        List<List<Long>> list= Lists.partition(parentList,10);
+        System.out.print(list.size());
+    }
 }

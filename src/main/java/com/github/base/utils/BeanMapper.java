@@ -52,6 +52,9 @@ public class BeanMapper {
      *            the object onto which the properties should be mapped
      */
     public static <S, D> void map(S source, D dest) {
+        if (source == null){
+            return;
+        }
         mapper.map(source, dest);
     }
 
