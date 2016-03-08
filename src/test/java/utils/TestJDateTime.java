@@ -1,11 +1,13 @@
 package utils;
 
+import com.github.base.json.JsonResponse;
 import com.github.base.utils.DateTimeUtils;
 import jodd.datetime.JDateTime;
 import jodd.datetime.format.JdtFormat;
 import jodd.datetime.format.JdtFormatter;
 import jodd.format.Printf;
 import lombok.extern.slf4j.Slf4j;
+import model.Person;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -117,9 +119,18 @@ public class TestJDateTime {
     }
     @Test
     public void testList(){
-        List list = new LinkedList();
-        List list1 = list.subList(0,10);
-    }
 
+        System.out.print(DateTimeUtils.formatDate(DateTimeUtils.getYesterdayDate()));
+
+    }
+    @Test
+    public void testDayOfMonth(){
+        System.out.print(DateTimeUtils.getDayOfMonth(DateTimeUtils.parse("2016-03-01"), 1));
+
+    }
+    @Test
+    public void testJsonResponse(){
+        System.out.print(JsonResponse.fail("str"));
+    }
 
 }

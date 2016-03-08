@@ -48,10 +48,10 @@ public class DateTimeUtils {
     }
 
     /**
-     * 格式化日期 YYYY-MM-DD
+     * 格式化日期
      *
      * @param date
-     * @param format
+     * @param format 格式
      * @return
      */
     public static String formatDate(Date date, String format) {
@@ -60,40 +60,70 @@ public class DateTimeUtils {
     }
 
     /**
-     * 默认格式化日期
-     *
+     * 格式化日期
      * @param date
-     * @return
+     * @return YYYY-MM-DD
      */
     public static String formatDate(Date date) {
         return formatDate(date, FORMAT_YYYY_MM_DD);
     }
 
     /**
-     *
-     * 获取YYYY-MM-DD 格式日期
-     * 获取周一,二,三
-     * 周一 :1
-     * 周二:2
-     * 上周一:-1
-     * 下周一:8
+     * 获取周的第几天
+     * @param date
+     * @param dayOfWeek 周的第几天
+     * @return YYYY-MM-DD
      */
-    public static String getWeekDay(Date date, int daysOfWeek) {
+    public static String getDayOfWeek(Date date, int dayOfWeek) {
         JDateTime jdt = new JDateTime(date);
-        return jdt.addDay(daysOfWeek - jdt.getDayOfWeek()).toString(FORMAT_YYYY_MM_DD);
+        return jdt.addDay(dayOfWeek - jdt.getDayOfWeek()).toString(FORMAT_YYYY_MM_DD);
     }
 
     /**
-     * 获取YYYY-MM-DD 格式日期
-     * @param date
-     * @param days
-     * @return
+     * 获取月的第几天
+     * @param date 日期
+     * @param dayOfMonth 月的第几天
+     * @return YYYY-MM-DD
      */
-    public static String getDate(Date date, int days){
+    public static String getDayOfMonth(Date date, int dayOfMonth){
+        JDateTime jdt = new JDateTime(date);
+        return jdt.addDay(dayOfMonth - jdt.getDayOfMonth()).toString(FORMAT_YYYY_MM_DD);
+    }
+
+
+    /**
+     * 获取年
+     * @param date
+     * @param years 加减年
+     * @return YYYY-MM-DD
+     */
+    public static String getYearDay(Date date, int years){
+        JDateTime jdt = new JDateTime(date);
+        return jdt.addYear(years).toString(FORMAT_YYYY_MM_DD);
+    }
+    /**
+     * 获取日期
+     * @param date
+     * @param days 加减天数
+     * @return YYYY-MM-DD
+     */
+    public static String getDay(Date date, int days){
         JDateTime jdt = new JDateTime(date);
         jdt.addDay(days);
         return jdt.toString(FORMAT_YYYY_MM_DD);
     }
+
+    /**
+     * 获取日期
+     * @param date
+     * @param days 加减天数
+     * @return
+     */
+    public static Date getDayDate(Date date, int days){
+        return new JDateTime(date).addDay(days).convertToDate();
+
+    }
+
 
 
 }

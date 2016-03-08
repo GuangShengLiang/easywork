@@ -1,5 +1,6 @@
 package com.github.base.json;
 
+import com.sun.deploy.util.ArrayUtil;
 import lombok.Data;
 
 import java.util.LinkedList;
@@ -36,39 +37,45 @@ public class JsonResponse {
     public JsonResponse() {
     }
 
-    public static JsonResponse createSuccessData(Object data, String msg) {
+    public static JsonResponse success(Object data, String msg) {
         JsonResponse rst = new JsonResponse();
         rst.setMsg(msg);
         rst.setData(data);
         return rst;
     }
 
-    public static JsonResponse createSuccessData(Object data) {
+    public static JsonResponse success(Object data) {
         JsonResponse rst = new JsonResponse();
         rst.setData(data);
         return rst;
     }
 
-    public static JsonResponse createSuccess() {
+    public static JsonResponse success() {
         JsonResponse rst = new JsonResponse();
         return rst;
     }
 
-    public static JsonResponse createFailMsg(String msg) {
+    public static JsonResponse fail(Object data,String... msgs) {
         JsonResponse rst = new JsonResponse();
         rst.setStatus(Status.失败.code);
-        rst.setMsg(msg);
+        rst.setData(data);
+        injectErrorMsgs(rst,msgs);
         return rst;
     }
-
-    public static JsonResponse createFailMsg(String... msgs) {
+    public static JsonResponse fail(String... msgs) {
         JsonResponse rst = new JsonResponse();
         rst.setStatus(Status.失败.code);
+        injectErrorMsgs(rst,msgs);
+        return rst;
+    }
+    private static void injectErrorMsgs(JsonResponse rst ,String... msgs){
+        if (msgs == null || msgs.length == 0){
+            return;
+        }
         rst.setMsg(msgs[0]);
         for (String msg : msgs) {
             ErrorMessage errorMessage = new ErrorMessage("", msg);
             rst.errMsg.add(errorMessage);
         }
-        return rst;
     }
 }

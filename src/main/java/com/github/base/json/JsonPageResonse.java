@@ -16,9 +16,9 @@ public class JsonPageResonse extends JsonResponse {
 
     private Integer total = 0;
 
-    public static JsonPageResonse createSuccessPageData(List<Object> rows) {
+    public static JsonPageResonse successPage(List<Object> rows) {
         JsonPageResonse resonse = new JsonPageResonse();
-        resonse.createSuccess();
+        resonse.success();
         if (rows == null) {
             resonse.rows = Lists.newArrayList();
         } else {
@@ -27,9 +27,9 @@ public class JsonPageResonse extends JsonResponse {
         }
         return resonse;
     }
-    public static JsonPageResonse createFailPageMsg(String msg){
+    public static JsonPageResonse failPage(String msg){
         JsonPageResonse resonse = new JsonPageResonse();
-        resonse.createFailMsg(msg);
+        resonse.fail();
         resonse.rows = Lists.newArrayList();
         return resonse;
     }

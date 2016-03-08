@@ -15,7 +15,7 @@ public class CheckUtils {
      * @param reference
      * @param msg
      */
-    public void checkNotNull(Object reference, String msg){
+    public void notNull(Object reference, String msg){
         if (reference == null){
             throw new BizException(msg);
         }
@@ -26,7 +26,7 @@ public class CheckUtils {
      * @param collection
      * @param msg
      */
-    public void checkNotEmpty(Collection collection, String msg){
+    public void notEmpty(Collection collection, String msg){
         if (collection == null || collection.isEmpty()){
             throw new BizException(msg);
         }
