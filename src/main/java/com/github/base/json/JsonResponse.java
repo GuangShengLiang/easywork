@@ -1,6 +1,5 @@
 package com.github.base.json;
 
-import com.sun.deploy.util.ArrayUtil;
 import lombok.Data;
 
 import java.util.LinkedList;
@@ -14,7 +13,7 @@ import java.util.List;
 public class JsonResponse {
 
     enum Status {
-        成功("ok"), 失败("fail"), 权限不够("auth");
+        成功("ok"), 失败("fail");
         final String code;
 
         Status(String code) {
@@ -31,8 +30,8 @@ public class JsonResponse {
 
     //信息
     private String msg;
-    //详细错误信息
-    private List<ErrorMessage> errMsg = new LinkedList<ErrorMessage>();
+//    //详细错误信息
+//    private List<ErrorMessage> errMsg = new LinkedList<ErrorMessage>();
 
     public JsonResponse() {
     }
@@ -54,15 +53,22 @@ public class JsonResponse {
         JsonResponse rst = new JsonResponse();
         return rst;
     }
-
-    public static JsonResponse fail(Object data,String... msgs) {
+    public static JsonResponse failure(String msg) {
+        JsonResponse rst = new JsonResponse();
+        rst.setStatus(Status.失败.code);
+        rst.setMsg(msg);
+//        injectErrorMsgs(rst,msgs);
+        return rst;
+    }
+    public static JsonResponse failure(Object data,String msg) {
         JsonResponse rst = new JsonResponse();
         rst.setStatus(Status.失败.code);
         rst.setData(data);
-        injectErrorMsgs(rst,msgs);
+        rst.setMsg(msg);
+//        injectErrorMsgs(rst,msgs);
         return rst;
     }
-    public static JsonResponse fail(String... msgs) {
+/*    public static JsonResponse fail(String... msgs) {
         JsonResponse rst = new JsonResponse();
         rst.setStatus(Status.失败.code);
         injectErrorMsgs(rst,msgs);
@@ -77,5 +83,5 @@ public class JsonResponse {
             ErrorMessage errorMessage = new ErrorMessage("", msg);
             rst.errMsg.add(errorMessage);
         }
-    }
+    }*/
 }

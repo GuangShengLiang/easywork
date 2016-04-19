@@ -29,7 +29,7 @@ public class JsonPageResonse extends JsonResponse {
     }
     public static JsonPageResonse failPage(String msg){
         JsonPageResonse resonse = new JsonPageResonse();
-        resonse.fail();
+        resonse.failure(msg);
         resonse.rows = Lists.newArrayList();
         return resonse;
     }

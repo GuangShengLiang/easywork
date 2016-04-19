@@ -65,44 +65,4 @@ public class ConditionUtils {
         return false;
     }
 
-    /**
-     * @deprecated
-     * @param source
-     * @param expects
-     * @return
-     */
-    public static boolean in(Object source, Object... expects) {
-        if (source == null) {
-            return false;
-        }
-        for (Object expect : expects) {
-            if (source instanceof String){
-                if (expect instanceof Byte){
-                    expect = String.valueOf(expect);
-                }
-            }
-            if (source instanceof Byte){
-                source = source.toString();
-                if (expect instanceof Byte){
-                    expect = expect.toString();
-                }
-            }
-            if (source instanceof Long){
-                if (expect instanceof Integer){
-                    expect = ((Integer) expect).longValue();
-                }
-            }
-            if (source instanceof Integer){
-                source =  ((Integer) source).longValue();
-                if (expect instanceof Integer){
-                    expect = ((Integer) expect).longValue();
-                }
-            }
-            if (source.equals(expect)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 }

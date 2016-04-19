@@ -22,7 +22,7 @@ public class DateTimeUtils {
     }
     /**
      * 获取昨天
-     *
+     * @deprecated
      * @return
      */
     public static Date getYesterdayDate() {
@@ -97,9 +97,20 @@ public class DateTimeUtils {
      * @param years 加减年
      * @return YYYY-MM-DD
      */
-    public static String getYearDay(Date date, int years){
+    public static String getYear(Date date, int years){
         JDateTime jdt = new JDateTime(date);
         return jdt.addYear(years).toString(FORMAT_YYYY_MM_DD);
+    }
+
+    /**
+     * 获取年
+     * @param date
+     * @param years 加减年
+     * @return YYYY-MM-DD
+     */
+    public static int getYear(Date date, int years , int months){
+        JDateTime jdt = new JDateTime(date);
+        return jdt.addYear(years).addMonth(months).getYear();
     }
     /**
      * 获取日期
@@ -112,14 +123,33 @@ public class DateTimeUtils {
         jdt.addDay(days);
         return jdt.toString(FORMAT_YYYY_MM_DD);
     }
-
+    /**
+     * 获取日期
+     * @param date
+     * @return YYYY-MM-DD
+     */
+    public static String getDay(Date date, int years, int months, int days){
+        JDateTime jdt = new JDateTime(date);
+        jdt.add(years,months,days);
+        return jdt.toString(FORMAT_YYYY_MM_DD);
+    }
+    /**
+     * 获取日期
+     * @param date
+     * @return date
+     */
+    public static Date getDate(Date date, int years, int months, int days){
+        JDateTime jdt = new JDateTime(date);
+        jdt.add(years,months,days);
+        return jdt.convertToDate();
+    }
     /**
      * 获取日期
      * @param date
      * @param days 加减天数
      * @return
      */
-    public static Date getDayDate(Date date, int days){
+    public static Date getDate(Date date, int days){
         return new JDateTime(date).addDay(days).convertToDate();
 
     }

@@ -130,7 +130,14 @@ public class TestJDateTime {
     }
     @Test
     public void testJsonResponse(){
-        System.out.print(JsonResponse.fail("str"));
+        System.out.print(JsonResponse.failure("str"));
+    }
+
+    @Test
+    public void testGetDay(){
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(DateTimeUtils.getDay(new Date(),-1,0,1));
+        System.out.println(DateTimeUtils.getYear(new Date(),0,1));
     }
 
 }
