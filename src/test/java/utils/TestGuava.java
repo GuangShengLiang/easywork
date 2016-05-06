@@ -61,5 +61,6 @@ public class TestGuava {
         }
         List<List<Long>> list= Lists.partition(parentList,10);
         System.out.print(list.size());
+//        b
     }
 }
