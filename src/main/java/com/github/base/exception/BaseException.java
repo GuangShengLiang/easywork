@@ -7,7 +7,7 @@ package com.github.base.exception;
  */
 public class BaseException extends RuntimeException {
 
-    private Errors errors = new Errors();
+    protected Errors errors = new Errors();
 
     public BaseException(String message){
         super(message);

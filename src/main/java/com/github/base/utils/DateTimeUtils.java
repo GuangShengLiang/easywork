@@ -15,7 +15,7 @@ public class DateTimeUtils {
 
     /**
      * 获取YYYY-MM-DD 格式日期
-     * @return
+     * @return　
      */
     public static String getToday(){
         return new JDateTime().toString(FORMAT_YYYY_MM_DD);

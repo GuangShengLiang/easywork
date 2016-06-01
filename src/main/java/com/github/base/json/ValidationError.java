@@ -1,0 +1,45 @@
+package com.github.base.json;
+
+import lombok.Data;
+
+/**
+ * Created by lgs on 16-5-31.
+ */
+@Data
+public class ValidationError {
+    private String field;
+    private Object rejectedValue;
+    private String message;
+
+    public ValidationError(){}
+
+    public ValidationError(String field, Object rejectedValue, String message){
+        this.field = field;
+        this.rejectedValue = rejectedValue;
+        this.message = message;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public Object getRejectedValue() {
+        return rejectedValue;
+    }
+
+    public void setRejectedValue(Object rejectedValue) {
+        this.rejectedValue = rejectedValue;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
