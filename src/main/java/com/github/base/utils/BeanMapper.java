@@ -14,8 +14,9 @@ public class BeanMapper {
 
     private final static MapperFacade mapper;
 
+    private final static MapperFactory factory;
     static {
-        MapperFactory factory = new DefaultMapperFactory.Builder().build();
+        factory = new DefaultMapperFactory.Builder().build();
         //注册一个mapper,这段可以同过继承configurableMapper类，配置成spring bean
         /*factory.registerClassMap(factory.classMap(SourceObj.class, DescObj.class)
                 //设置正向空值不复制，反向空值不复制
@@ -30,6 +31,12 @@ public class BeanMapper {
         mapper = factory.getMapperFacade();
     }
 
+    public static MapperFactory getMapperFactory(){
+        return factory;
+    }
+    public static MapperFacade getMapper(){
+        return mapper;
+    }
     /**
      * Create and return a new instance of type D mapped with the properties of
      * <code>sourceObject</code>.

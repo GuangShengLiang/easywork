@@ -9,7 +9,7 @@ import java.util.List;
  * @Date 15-12-7 下午3:58
  */
 @Data
-public class Person {
+public class Human {
     private String firstName;
     private String lastName;
     private List<Person> persons;

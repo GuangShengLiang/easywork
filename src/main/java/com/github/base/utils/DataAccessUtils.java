@@ -17,7 +17,7 @@ public class DataAccessUtils {
         return results.iterator().next();
     }
 
-    public static <T> T requiredSingleResult(Collection<T> results){
+    public static <T> T SingleResultRequired(Collection<T> results){
         int size = results != null?results.size():0;
         if(size == 0) {
             throw new BizException("not found data");
