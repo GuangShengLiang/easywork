@@ -10,7 +10,7 @@ public class JsonResponse{
     //状态
     protected String status = JsonResponseStatus.成功.code;
     //编码
-    protected String code;
+    protected String code = "0";
     //返回数据
     protected Object data;
     //信息
@@ -20,44 +20,43 @@ public class JsonResponse{
     }
 
     public JsonResponse(Object data, String msg){
-
+        this.data = data;
+        this.msg = msg;
     }
     public JsonResponse(String status, Object data, String msg){
-
+        this(data,msg);
+        this.status = status;
     }
-    public static JsonResponse success(Object data, String msg) {
-        return new JsonResponse(data,msg);
+    public JsonResponse(String code,String status, Object data, String msg){
+        this(status, data, msg);
+        this.code = code;
+    }
+    public static JsonResponse success() {
+        return new JsonResponse();
     }
 
     public static JsonResponse success(Object data) {
         return new JsonResponse(data,"");
     }
 
-    public static JsonResponse success() {
-        return new JsonResponse();
+    public static JsonResponse success(Object data, String msg) {
+        return new JsonResponse(data,msg);
     }
+
+    public static JsonResponse success(String code,Object data, String msg) {
+        return new JsonResponse(code,JsonResponseStatus.成功.code,data,msg);
+    }
+
     public static JsonResponse failure(String msg) {
         return new JsonResponse(JsonResponseStatus.失败.code,null,msg);
     }
     public static JsonResponse failure(Object data,String msg) {
-        return new JsonResponse(JsonResponseStatus.失败.code,data,msg);
+        return new JsonResponse(JsonResponseStatus.失败.code, data, msg);
     }
-/*    public static JsonResponse fail(String... msgs) {
-        JsonResponse rst = new JsonResponse();
-        rst.setStatus(Status.失败.code);
-        injectErrorMsgs(rst,msgs);
-        return rst;
+
+    public static JsonResponse failure(String code,Object data,String msg) {
+        return new JsonResponse(code,JsonResponseStatus.失败.code,data,msg);
     }
-    private static void injectErrorMsgs(JsonResponse rst ,String... msgs){
-        if (msgs == null || msgs.length == 0){
-            return;
-        }
-        rst.setMsg(msgs[0]);
-        for (String msg : msgs) {
-            ErrorMessage errorMessage = new ErrorMessage("", msg);
-            rst.errMsg.add(errorMessage);
-        }
-    }*/
 
     public String getStatus() {
         return status;
