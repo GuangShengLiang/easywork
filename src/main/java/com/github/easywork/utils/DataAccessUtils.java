@@ -1,6 +1,6 @@
-package com.github.base.utils;
+package com.github.easywork.utils;
 
-import com.github.base.exception.BizException;
+import com.github.easywork.exception.BizException;
 
 import java.util.Collection;
 
@@ -17,7 +17,7 @@ public class DataAccessUtils {
         return results.iterator().next();
     }
 
-    public static <T> T SingleResultRequired(Collection<T> results){
+    public static <T> T singleResultRequired(Collection<T> results){
         int size = results != null?results.size():0;
         if(size == 0) {
             throw new BizException("not found data");

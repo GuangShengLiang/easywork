@@ -1,7 +1,7 @@
 package utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.base.json.JsonPageResponse;
+import com.github.easywork.json.JsonPageResponse;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;

@@ -1,4 +1,4 @@
-package com.github.base.json;
+package com.github.easywork.json;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class ErrorMessage {
 
-    private String code;
+    private int code;
 
     private String message;
 
@@ -17,7 +17,7 @@ public class ErrorMessage {
 
     }
 
-    public ErrorMessage(String code, String message){
+    public ErrorMessage(int code, String message){
         this.code = code;
         this.message = message;
     }

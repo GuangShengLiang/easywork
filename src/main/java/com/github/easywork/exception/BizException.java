@@ -1,4 +1,4 @@
-package com.github.base.exception;
+package com.github.easywork.exception;
 
 /**
  * @Author lgs
@@ -14,7 +14,7 @@ public class BizException extends BaseException {
         super(message);
     }
 
-    public BizException(String code, String message){
+    public BizException(int code, String message){
         super(code,message);
     }
 

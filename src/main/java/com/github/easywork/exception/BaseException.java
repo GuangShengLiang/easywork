@@ -1,4 +1,4 @@
-package com.github.base.exception;
+package com.github.easywork.exception;
 
 
 /**
@@ -12,9 +12,9 @@ public class BaseException extends RuntimeException {
     public BaseException(String message){
         super(message);
     }
-    public BaseException(String code, String message){
+    public BaseException(int code, String message){
         super(message);
-        this.errors.setErrorCode(code);
+        this.errors.setCode(code);
     }
     public BaseException(){
         super();
@@ -24,12 +24,12 @@ public class BaseException extends RuntimeException {
         return errors;
     }
 
-    public void injectError(String errorCode){
-        this.errors.setErrorCode(errorCode);
+    public void injectError(int code){
+        this.errors.setCode(code);
     }
 
-    public void injectError(String errorCode, Object[] args){
-        this.errors.setErrorCode(errorCode);
+    public void injectError(int code, Object[] args){
+        this.errors.setCode(code);
         this.errors.setArgs(args);
     }
 }

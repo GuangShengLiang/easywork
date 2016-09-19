@@ -1,4 +1,4 @@
-package com.github.base.json;
+package com.github.easywork.json;
 
 import lombok.Data;
 

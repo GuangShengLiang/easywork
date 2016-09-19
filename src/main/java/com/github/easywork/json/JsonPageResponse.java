@@ -1,7 +1,6 @@
-package com.github.base.json;
+package com.github.easywork.json;
 
 import com.google.common.collect.Lists;
-import lombok.Data;
 
 import java.util.List;
 
@@ -11,12 +10,12 @@ import java.util.List;
  */
 public class JsonPageResponse extends JsonResponse {
 
-    private Long total = 0l;
+    private long total;
     public JsonPageResponse(){
 
     }
-    public JsonPageResponse(String status,Object rows, String msg){
-        super(status, rows,msg);
+    public JsonPageResponse(int code,Object rows, String msg){
+        super(code, rows,msg);
     }
 
 
@@ -32,14 +31,14 @@ public class JsonPageResponse extends JsonResponse {
 
     }
     public static JsonPageResponse failure(String msg){
-        return new JsonPageResponse(JsonResponseStatus.失败.code,Lists.newLinkedList(),msg);
+        return new JsonPageResponse(-1,Lists.newLinkedList(),msg);
     }
 
-    public Long getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(Long total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 }

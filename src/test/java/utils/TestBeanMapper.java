@@ -1,17 +1,14 @@
 package utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.base.utils.BeanMapper;
+import com.github.easywork.utils.BeanMapper;
 import com.google.common.collect.Lists;
 import ma.glasnost.orika.BoundMapperFacade;
-import ma.glasnost.orika.MapperFacade;
 import model.Human;
 import model.Person;
-import org.apache.commons.beanutils.BeanUtilsBean;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
 /**

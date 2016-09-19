@@ -1,6 +1,6 @@
-package com.github.base.utils;
+package com.github.easywork.utils;
 
-import com.github.base.exception.BizException;
+import com.github.easywork.exception.BizException;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package com.github.base.utils;
+package com.github.easywork.utils;
 
 /**
  * @Author lgs

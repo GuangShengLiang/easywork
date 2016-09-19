@@ -1,25 +1,15 @@
 package utils;
 
-import com.github.base.json.JsonResponse;
-import com.github.base.utils.DateTimeUtils;
+import com.github.easywork.json.JsonResponse;
+import com.github.easywork.utils.DateTimeUtils;
 import jodd.datetime.JDateTime;
-import jodd.datetime.format.JdtFormat;
-import jodd.datetime.format.JdtFormatter;
-import jodd.format.Printf;
 import lombok.extern.slf4j.Slf4j;
-import model.Person;
 import org.junit.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Author lgs
@@ -78,7 +68,6 @@ public class TestJDateTime {
 
     @Test
     public void testGetYestory(){
-        DateTimeUtils.getYesterdayDate();
         JDateTime jdt = new JDateTime();
         int day = 7;
         jdt.addDay(day - jdt.getDayOfWeek());
@@ -115,12 +104,6 @@ public class TestJDateTime {
             e.printStackTrace();
         }*/
         System.out.print("end");
-
-    }
-    @Test
-    public void testList(){
-
-        System.out.print(DateTimeUtils.formatDate(DateTimeUtils.getYesterdayDate()));
 
     }
     @Test

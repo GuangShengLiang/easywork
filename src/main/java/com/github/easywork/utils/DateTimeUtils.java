@@ -1,4 +1,4 @@
-package com.github.base.utils;
+package com.github.easywork.utils;
 
 import jodd.datetime.JDateTime;
 
@@ -19,16 +19,6 @@ public class DateTimeUtils {
      */
     public static String getToday(){
         return new JDateTime().toString(FORMAT_YYYY_MM_DD);
-    }
-    /**
-     * 获取昨天
-     * @deprecated
-     * @return
-     */
-    public static Date getYesterdayDate() {
-        JDateTime jdt = new JDateTime();
-        jdt.addDay(-1);
-        return jdt.convertToDate();
     }
 
     /**

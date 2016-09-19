@@ -1,4 +1,4 @@
-package com.github.base.json;
+package com.github.easywork.json;
 
 import com.google.common.collect.Lists;
 import lombok.Data;
@@ -14,7 +14,7 @@ public class JsonValidationResponse extends JsonResponse {
     protected List<ValidationError> errors = Lists.newLinkedList();
 
     public JsonValidationResponse addValidationError(String field, Object rejectedValue, String message) {
-        ValidationError validationError = new ValidationError(field,rejectedValue,message);
+        ValidationError validationError = new ValidationError(field, rejectedValue, message);
         errors.add(validationError);
         return this;
     }

@@ -1,4 +1,4 @@
-package com.github.base.utils;
+package com.github.easywork.utils;
 
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;

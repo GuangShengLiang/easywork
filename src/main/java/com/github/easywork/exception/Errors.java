@@ -1,5 +1,7 @@
-package com.github.base.exception;
+package com.github.easywork.exception;
 
+
+import com.github.easywork.json.JsonResponseCode;
 
 /**
  * @Author lgs
@@ -7,18 +9,18 @@ package com.github.base.exception;
  */
 public class Errors {
 
-    private String errorCode;
+    private int code = JsonResponseCode.失败.code;
 
     private Object[] args;
 
     private String message;
 
-    public String getErrorCode() {
-        return errorCode;
+    public int getCode() {
+        return code;
     }
 
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public Object[] getArgs() {
