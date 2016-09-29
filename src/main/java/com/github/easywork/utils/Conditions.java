@@ -4,7 +4,7 @@ package com.github.easywork.utils;
  * @Author lgs
  * @Date 15-11-22 下午2:58
  */
-public class ConditionUtils {
+public class Conditions {
 
     /**
      * 源值是否在期望的值中

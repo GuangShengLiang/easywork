@@ -1,7 +1,7 @@
 package utils;
 
 import com.github.easywork.json.JsonResponse;
-import com.github.easywork.utils.DateTimeUtils;
+import com.github.easywork.utils.Dates;
 import jodd.datetime.JDateTime;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -108,7 +108,7 @@ public class TestJDateTime {
     }
     @Test
     public void testDayOfMonth(){
-        System.out.print(DateTimeUtils.getDayOfMonth(DateTimeUtils.parse("2016-03-01"), 1));
+        System.out.print(Dates.getDayOfMonth(Dates.parse("2016-03-01"), 1));
 
     }
     @Test
@@ -119,8 +119,8 @@ public class TestJDateTime {
     @Test
     public void testGetDay(){
         System.out.println(Integer.MAX_VALUE);
-        System.out.println(DateTimeUtils.getDay(new Date(),-1,0,1));
-        System.out.println(DateTimeUtils.getYear(new Date(),0,1));
+        System.out.println(Dates.getDay(new Date(),-1,0,1));
+        System.out.println(Dates.getYear(new Date(),0,1));
     }
 
 }

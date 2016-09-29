@@ -7,7 +7,7 @@ import java.util.Collection;
 /**
  * Created by user on 2016/8/5.
  */
-public class DataAccessUtils {
+public class Datas {
 
     public static <T> T singleResult(Collection<T> results){
         int size = results != null?results.size():0;
