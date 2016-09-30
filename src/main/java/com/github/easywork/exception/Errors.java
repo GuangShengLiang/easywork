@@ -2,11 +2,13 @@ package com.github.easywork.exception;
 
 
 import com.github.easywork.json.JsonResponseCode;
+import lombok.Data;
 
 /**
  * @Author lgs
  * @Date 15-7-16 下午5:19
  */
+@Data
 public class Errors {
 
     private int code = JsonResponseCode.失败.code;

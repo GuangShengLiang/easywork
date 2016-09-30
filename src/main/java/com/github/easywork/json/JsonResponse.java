@@ -1,10 +1,11 @@
 package com.github.easywork.json;
-
+import lombok.Data;
 
 /**
  * @Author lgs
  * @Date 15-5-11 上午11:06
  */
+@Data
 public class JsonResponse {
 
     //编码
@@ -43,27 +44,6 @@ public class JsonResponse {
         return new JsonResponse(code, null, msg);
     }
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
 
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 }
