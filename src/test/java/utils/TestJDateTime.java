@@ -1,15 +1,22 @@
 package utils;
 
+import com.github.easywork.exception.BizException;
 import com.github.easywork.json.JsonResponse;
+import com.github.easywork.utils.Datas;
 import com.github.easywork.utils.Dates;
+import com.google.common.collect.Lists;
 import jodd.datetime.JDateTime;
 import lombok.extern.slf4j.Slf4j;
+import model.Person;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Supplier;
 
 /**
  * @Author lgs
@@ -123,4 +130,19 @@ public class TestJDateTime {
         System.out.println(Dates.getYear(new Date(),0,1));
     }
 
+    @Test
+    public void testDatas(){
+        System.out.println(Datas.getOrDeault(null,"string"));
+        System.out.println(Datas.getOrDeault("wwww","string"));
+        Person p1 = new Person(1,"ss","");
+
+        Person p2 = new Person(2,"ss","");
+
+        List<Person> persons = Lists.newLinkedList();
+        persons.add(p1);
+        persons.add(p2);
+        List<Integer> list = Datas.convert(persons,(p)->p.getId());
+        System.out.println(list);
+//        Optional.ofNullable(null).orElseThrow(BizException::new);
+    }
 }

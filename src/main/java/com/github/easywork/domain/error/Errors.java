@@ -1,4 +1,4 @@
-package com.github.easywork.exception;
+package com.github.easywork.domain.error;
 
 
 import com.github.easywork.json.JsonResponseCode;

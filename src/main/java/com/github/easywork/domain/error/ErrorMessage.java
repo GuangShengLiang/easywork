@@ -1,4 +1,4 @@
-package com.github.easywork.json;
+package com.github.easywork.domain.error;
 
 import lombok.Data;
 

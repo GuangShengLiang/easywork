@@ -60,6 +60,7 @@ public class TestGuava {
         for (long i =0; i< 123;i++){
             parentList.add(i);
         }
+
         List<List<Long>> list= Lists.partition(parentList,10);
         System.out.print(list.size());
 //        b

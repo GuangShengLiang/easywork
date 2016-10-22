@@ -1,5 +1,6 @@
 package com.github.easywork.json;
 
+import com.github.easywork.domain.error.ValidationError;
 import com.google.common.collect.Lists;
 import lombok.Data;
 
