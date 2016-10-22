@@ -31,7 +31,6 @@ public class TestBeanMapper {
         Person p3 = new Person();
         p3.setFirstName("lgs");
         p3.setLastName("guangsheng");
-        p1.setPersons(Lists.newArrayList(p3));
         long startB = System.currentTimeMillis();
 
         for(int i=0;i<1000000;i++){

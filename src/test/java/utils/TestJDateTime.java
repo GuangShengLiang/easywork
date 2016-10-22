@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -141,8 +142,11 @@ public class TestJDateTime {
         List<Person> persons = Lists.newLinkedList();
         persons.add(p1);
         persons.add(p2);
+
         List<Integer> list = Datas.convert(persons,(p)->p.getId());
         System.out.println(list);
-//        Optional.ofNullable(null).orElseThrow(BizException::new);
+        Runnable run = System.out::close;
+        run.run();
+
     }
 }

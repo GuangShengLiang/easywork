@@ -51,4 +51,5 @@ public class Datas {
         collection.forEach(e->{list.add(function.apply(e));});
         return list;
     }
+
 }
