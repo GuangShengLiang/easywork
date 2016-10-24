@@ -36,11 +36,11 @@ public class JsonResponse {
         return new JsonResponse(JsonResponseCode.成功.code,data, null);
     }
 
-    public static JsonResponse failure(String msg) {
-        return failure(JsonResponseCode.失败.code, msg);
+    public static JsonResponse fail(String msg) {
+        return fail(JsonResponseCode.失败.code, msg);
     }
 
-    public static JsonResponse failure(int code, String msg) {
+    public static JsonResponse fail(int code, String msg) {
         return new JsonResponse(code, null, msg);
     }
 

@@ -12,18 +12,19 @@ public class Asserts {
 
     /**
      * if reference is null then throw BizException(msg)
-     * @param reference
-     * @param msg
+     * @param ref
+     * @param template
      */
-    public void notNull(Object ref, String template, Object ... args){
+    public static void notNull(Object ref, String template, Object ... args){
         if (ref == null){
             throw new BizException(String.format(template,args));
         }
     }
-    public void notNull(Object ref, String field){
+
+    public static void notNull(Object ref, String field){
         notNull(ref,"%s can't be null",field);
     }
-    public void notNullMsg(Object ref, String msg){
+    public static void notNullMsg(Object ref, String msg){
         if (ref == null){
             throw new BizException(msg);
         }
@@ -33,8 +34,20 @@ public class Asserts {
      * @param collection
      * @param msg
      */
-    public void notEmpty(Collection collection, String msg){
+    public static void notEmpty(Collection collection, String msg){
         if (collection == null || collection.isEmpty()){
+            throw new BizException(msg);
+        }
+    }
+
+    public static void isTrue(boolean expression, String template, Object... args){
+        if (expression){
+            throw new BizException(String.format(template,args));
+        }
+    }
+
+    public static void isTrue(boolean expression, String msg){
+        if (expression){
             throw new BizException(msg);
         }
     }

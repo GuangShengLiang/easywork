@@ -121,7 +121,7 @@ public class TestJDateTime {
     }
     @Test
     public void testJsonResponse(){
-        System.out.print(JsonResponse.failure("str"));
+        System.out.print(JsonResponse.fail("str"));
     }
 
     @Test

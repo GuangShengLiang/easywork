@@ -14,15 +14,6 @@ public class Dates {
     public final static String FORMAT_YYYY_MM_DD_hh_mm_ss = "YYYY-MM-DD hh:mm:ss";
 
     /**
-     * 获取YYYY-MM-DD 格式日期
-     *
-     * @return
-     */
-    public static String getToday() {
-        return new JDateTime().toString(FORMAT_YYYY_MM_DD);
-    }
-
-    /**
      * 字符串转日期
      * "2003-11-24 23:18:38.173"
      * "2003-11-23");                // 2003-11-23 00:00:00.000
