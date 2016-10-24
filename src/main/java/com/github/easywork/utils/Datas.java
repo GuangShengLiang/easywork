@@ -42,7 +42,7 @@ public class Datas {
         }
     }
 
-    public static <T> T getOrDeault(T t,T defaultValue){
+    public static <T> T getOrDefault(T t, T defaultValue){
         return Optional.ofNullable(t).orElse(defaultValue);
     }
 

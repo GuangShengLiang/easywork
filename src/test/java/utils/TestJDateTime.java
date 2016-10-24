@@ -1,6 +1,5 @@
 package utils;
 
-import com.github.easywork.exception.BizException;
 import com.github.easywork.json.JsonResponse;
 import com.github.easywork.utils.Datas;
 import com.github.easywork.utils.Dates;
@@ -12,12 +11,9 @@ import org.junit.Test;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 /**
  * @Author lgs
@@ -133,8 +129,8 @@ public class TestJDateTime {
 
     @Test
     public void testDatas(){
-        System.out.println(Datas.getOrDeault(null,"string"));
-        System.out.println(Datas.getOrDeault("wwww","string"));
+        System.out.println(Datas.getOrDefault(null,"string"));
+        System.out.println(Datas.getOrDefault("wwww","string"));
         Person p1 = new Person(1,"ss","");
 
         Person p2 = new Person(2,"ss","");
