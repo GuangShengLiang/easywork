@@ -14,17 +14,17 @@ import java.util.function.Function;
  */
 public class Datas {
 
-    public static <T> T single(Collection<T> results){
-        int size = results != null?results.size():0;
-        if(size == 0) {
+    public static <T> T single(Collection<T> results) {
+        int size = results != null ? results.size() : 0;
+        if (size == 0) {
             return null;
         }
         return results.iterator().next();
     }
 
-    public static <T> T singleRequired(Collection<T> results){
-        int size = results != null?results.size():0;
-        if(size == 0) {
+    public static <T> T singleRequired(Collection<T> results) {
+        int size = results != null ? results.size() : 0;
+        if (size == 0) {
             throw new BizException("not found data");
         }
         return results.iterator().next();
@@ -32,23 +32,25 @@ public class Datas {
     }
 
     public static <T> T singleOnly(Collection<T> results) {
-        int size = results != null?results.size():0;
-        if(size == 0) {
+        int size = results != null ? results.size() : 0;
+        if (size == 0) {
             return null;
-        } else if(results.size() > 1) {
+        } else if (results.size() > 1) {
             throw new BizException("too much row data");
         } else {
             return results.iterator().next();
         }
     }
 
-    public static <T> T getOrDefault(T t, T defaultValue){
+    public static <T> T getOrDefault(T t, T defaultValue) {
         return Optional.ofNullable(t).orElse(defaultValue);
     }
 
-    public static <T,R> List<R> convert(Collection<T> collection, Function<T, R> function){
+    public static <T, R> List<R> convert(Collection<T> collection, Function<T, R> function) {
         List<R> list = Lists.newLinkedList();
-        collection.forEach(e->{list.add(function.apply(e));});
+        collection.forEach(e -> {
+            list.add(function.apply(e));
+        });
         return list;
     }
 

@@ -45,10 +45,10 @@ public class ControllerExceptionHandler {
     }
 
 //    ClientAbortException.class,
-    @ExceptionHandler({HttpMediaTypeNotAcceptableException.class,MissingServletRequestParameterException.class,HttpRequestMethodNotSupportedException.class})
+    /*@ExceptionHandler({HttpMediaTypeNotAcceptableException.class,MissingServletRequestParameterException.class,HttpRequestMethodNotSupportedException.class})
     public JsonResponse ignore(Exception ex) {
         return JsonResponse.fail(ex.getMessage());
-    }
+    }*/
     @ExceptionHandler(Exception.class)
     @ResponseBody
     protected JsonResponse exceptionHandler(Exception ex) {

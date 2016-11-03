@@ -78,9 +78,5 @@ public class TestGuava {
 //        System.out.println(BigDecimal.valueOf(10).divide(new BigDecimal("0"),2, BigDecimal.ROUND_HALF_UP));
         System.out.println(4/ 6);
     }
-    @Test
-    public void testResponse(){
-        System.out.println(JSONObject.toJSONString(JsonPageResponse.success(null)));
-    }
 
 }
