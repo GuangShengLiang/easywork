@@ -33,21 +33,28 @@ public class TestBeanMapper {
         p3.setLastName("guangsheng");
         long startB = System.currentTimeMillis();
 
-        for(int i=0;i<1000000;i++){
+        for(int i=0;i<10000000;i++){
             Human p2 = new Human();
-            BeanUtils.copyProperties(p1,p2);
+//            BeanMapper.copy(p1,p2);
+            BeanMapper.map(p1,Human.class);
+
+//            BeanUtils.copyProperties(p1,Human.class);
+//            BeanMapper.map(p1,p2);
+
             if (i==0){
                 System.out.println(JSONObject.toJSON(p2));
             }
         }
         long endB = System.currentTimeMillis();
         System.out.println(endB - startB);
+        BoundMapperFacade<Person,Human> mapper = BeanMapper.getMapperFactory().getMapperFacade(Person.class, Human.class);
 
         long start = System.currentTimeMillis();
-        BoundMapperFacade<Person,Human> mapper = BeanMapper.getMapperFactory().getMapperFacade(Person.class, Human.class);
-        for (int i=0;i<1000000;i++) {
+        for (int i=0;i<10000000;i++) {
             Human p2 = new Human();
-
+//            BeanMapper.copy(p1,Human.class);
+//            BeanMapper.map(p1,Human.class);
+//            BeanMapper.map(p1,p2);
             mapper.map(p1,p2);
             if (i==0){
                 System.out.println(JSONObject.toJSON(p2));

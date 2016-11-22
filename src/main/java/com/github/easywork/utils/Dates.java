@@ -9,9 +9,9 @@ import java.util.Date;
  */
 public class Dates {
 
-    public final static String FORMAT_YYYY_MM_DD = "YYYY-MM-DD";
+    public final static String YYYY_MM_DD = "YYYY-MM-DD";
 
-    public final static String FORMAT_YYYY_MM_DD_hh_mm_ss = "YYYY-MM-DD hh:mm:ss";
+    public final static String YYYY_MM_DD_hh_mm_ss = "YYYY-MM-DD hh:mm:ss";
 
     /**
      * 字符串转日期
@@ -48,7 +48,7 @@ public class Dates {
      * @return YYYY-MM-DD
      */
     public static String formatDate(Date date) {
-        return formatDate(date, FORMAT_YYYY_MM_DD);
+        return formatDate(date, YYYY_MM_DD);
     }
 
     /**
@@ -60,7 +60,7 @@ public class Dates {
      */
     public static String getDayOfWeek(Date date, int dayOfWeek) {
         JDateTime jdt = new JDateTime(date);
-        return jdt.addDay(dayOfWeek - jdt.getDayOfWeek()).toString(FORMAT_YYYY_MM_DD);
+        return jdt.addDay(dayOfWeek - jdt.getDayOfWeek()).toString(YYYY_MM_DD);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Dates {
      */
     public static String getDayOfMonth(Date date, int dayOfMonth) {
         JDateTime jdt = new JDateTime(date);
-        return jdt.addDay(dayOfMonth - jdt.getDayOfMonth()).toString(FORMAT_YYYY_MM_DD);
+        return jdt.addDay(dayOfMonth - jdt.getDayOfMonth()).toString(YYYY_MM_DD);
     }
 
 
@@ -85,7 +85,7 @@ public class Dates {
      */
     public static String getYear(Date date, int years) {
         JDateTime jdt = new JDateTime(date);
-        return jdt.addYear(years).toString(FORMAT_YYYY_MM_DD);
+        return jdt.addYear(years).toString(YYYY_MM_DD);
     }
 
     /**
@@ -110,7 +110,7 @@ public class Dates {
     public static String getDay(Date date, int days) {
         JDateTime jdt = new JDateTime(date);
         jdt.addDay(days);
-        return jdt.toString(FORMAT_YYYY_MM_DD);
+        return jdt.toString(YYYY_MM_DD);
     }
 
     /**
@@ -122,7 +122,7 @@ public class Dates {
     public static String getDay(int days) {
         JDateTime jdt = new JDateTime();
         jdt.addDay(days);
-        return jdt.toString(FORMAT_YYYY_MM_DD);
+        return jdt.toString(YYYY_MM_DD);
     }
 
     /**
@@ -134,7 +134,7 @@ public class Dates {
     public static String getDay(Date date, int years, int months, int days) {
         JDateTime jdt = new JDateTime(date);
         jdt.add(years, months, days);
-        return jdt.toString(FORMAT_YYYY_MM_DD);
+        return jdt.toString(YYYY_MM_DD);
     }
 
     /**
@@ -160,6 +160,5 @@ public class Dates {
         return new JDateTime(date).addDay(days).convertToDate();
 
     }
-
 
 }

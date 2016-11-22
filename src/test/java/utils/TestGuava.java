@@ -77,6 +77,7 @@ public class TestGuava {
         System.out.println(format.format(4/ 6 ));// 打印计算结果
 //        System.out.println(BigDecimal.valueOf(10).divide(new BigDecimal("0"),2, BigDecimal.ROUND_HALF_UP));
         System.out.println(4/ 6);
+
     }
 
 }
