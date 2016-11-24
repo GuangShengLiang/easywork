@@ -25,15 +25,15 @@ public class DataGridPageResponse<T> {
     public DataGridPageResponse() {
 
     }
-    public static <T> JsonPageResponse<T> success(PageResult<T> page) {
-        return new JsonPageResponse(JsonResponseCode.成功.code, page.getData(), null, page.getTotal());
+    public static <T> DataGridPageResponse<T> success(PageResult<T> page) {
+        return new DataGridPageResponse(JsonResponseCode.成功.code, page.getData(), null, page.getTotal());
     }
-    public static <T> JsonPageResponse<T> success(List<T> rows, long total) {
-        return new JsonPageResponse(JsonResponseCode.成功.code, rows, null, total);
+    public static <T> DataGridPageResponse<T> success(List<T> rows, long total) {
+        return new DataGridPageResponse(JsonResponseCode.成功.code, rows, null, total);
     }
 
-    public static JsonPageResponse fail(String msg) {
-        return new JsonPageResponse(JsonResponseCode.失败.code, null, msg, 0);
+    public static DataGridPageResponse fail(String msg) {
+        return new DataGridPageResponse(JsonResponseCode.失败.code, null, msg, 0);
     }
 
     public boolean isSuccess() {
