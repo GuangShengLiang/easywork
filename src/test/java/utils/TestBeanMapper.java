@@ -64,5 +64,10 @@ public class TestBeanMapper {
         System.out.println(end - start);
 
     }
+    @Test
+    public void test(){
+       BeanMapper.map(null,new Person());
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.github.easywork.utils;
+package com.github.easywork.interfaces;
 
 @FunctionalInterface
 public interface Execute {

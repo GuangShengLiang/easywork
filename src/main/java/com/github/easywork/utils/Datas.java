@@ -1,6 +1,7 @@
 package com.github.easywork.utils;
 
 import com.github.easywork.exception.BizException;
+import com.github.easywork.interfaces.Execute;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -10,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.function.Function;
-
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 /**
  * Created by user on 2016/8/5.

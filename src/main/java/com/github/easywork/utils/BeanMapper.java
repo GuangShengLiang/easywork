@@ -1,12 +1,11 @@
 package com.github.easywork.utils;
 
-import com.google.common.collect.Lists;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
-import org.springframework.beans.BeanUtils;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @Author lgs
@@ -53,6 +52,7 @@ public class BeanMapper {
      * @return
      */
     public static <S, D> D map(S source, Class<D> destinationClass) {
+//        BeanUtils.instantiateClass(destinationClass);
         return mapper.map(source, destinationClass);
     }
 
@@ -64,10 +64,9 @@ public class BeanMapper {
      * @param dest   the object onto which the properties should be mapped
      */
     public static <S, D> void map(S source, D dest) {
-        if (source == null) {
-            return;
-        }
-        mapper.map(source, dest);
+
+        Optional.ofNullable(source).ifPresent((e) -> mapper.map(e, dest));
+
     }
 
     /**

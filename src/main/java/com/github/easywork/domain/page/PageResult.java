@@ -18,4 +18,5 @@ public class PageResult<T> {
         this.data = data;
         this.total = total;
     }
+
 }
