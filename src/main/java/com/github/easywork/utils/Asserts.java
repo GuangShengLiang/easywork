@@ -51,13 +51,13 @@ public class Asserts {
         }
     }
 
-    public static void isTrue(final boolean expression, final String template, Object... args) {
+    public static void whenReturnErrorMsg(final boolean expression, final String template, Object... args) {
         if (expression) {
             throw new BizException(String.format(template, args));
         }
     }
 
-    public static void isTrue(final boolean expression, final int code, final String template, Object... args) {
+    public static void whenReturnErrorMsg(final boolean expression, final int code, final String template, Object... args) {
         if (expression) {
             throw new BizException(code, String.format(template, args));
         }
