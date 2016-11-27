@@ -22,7 +22,7 @@ public class Conditions {
             return false;
         }
         for (String expect : expects) {
-            return source== expect || source.equals(expect);
+            return source == expect || source.equals(expect);
         }
         return false;
     }
@@ -32,7 +32,7 @@ public class Conditions {
             return false;
         }
         for (String expect : expects) {
-            return source== expect || source.equalsIgnoreCase(expect);
+            return source == expect || source.equalsIgnoreCase(expect);
         }
         return false;
     }
@@ -42,7 +42,7 @@ public class Conditions {
             return false;
         }
         for (Integer expect : expects) {
-            return source== expect || source.equals(expect);
+            return source == expect || source.equals(expect);
         }
         return false;
     }
@@ -52,7 +52,7 @@ public class Conditions {
             return false;
         }
         for (Long expect : expects) {
-            return source== expect || source.equals(expect);
+            return source == expect || source.equals(expect);
         }
         return false;
     }

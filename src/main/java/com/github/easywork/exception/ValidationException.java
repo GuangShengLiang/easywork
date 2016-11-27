@@ -5,15 +5,15 @@ package com.github.easywork.exception;
  */
 public class ValidationException extends BaseException {
 
-    public ValidationException(){
+    public ValidationException() {
         super();
     }
 
-    public ValidationException(String message){
+    public ValidationException(String message) {
         super(message);
     }
 
-    public ValidationException(int code, String message){
-        super(code,message);
+    public ValidationException(int code, String message) {
+        super(code, message);
     }
 }

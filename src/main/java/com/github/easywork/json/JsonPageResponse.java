@@ -31,7 +31,7 @@ public class JsonPageResponse<T> {
     }
 
     public static JsonPageResponse fail(String msg) {
-        return new JsonPageResponse(JsonResponseCode.失败.code, null, msg,0);
+        return new JsonPageResponse(JsonResponseCode.失败.code, null, msg, 0);
     }
 
     public boolean isSuccess() {

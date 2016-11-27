@@ -8,10 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
-import org.springframework.web.HttpMediaTypeNotAcceptableException;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,6 +33,7 @@ public class ControllerExceptionHandler {
     public JsonResponse paramValidExceptionHandler(HttpMessageNotReadableException ex) {
         return JsonResponse.fail(ex.getMessage());
     }
+
     @ExceptionHandler(BindException.class)
     public JsonResponse bindException(BindException ex) {
         JsonValidationResponse response = new JsonValidationResponse();
@@ -44,7 +42,7 @@ public class ControllerExceptionHandler {
         return response;
     }
 
-//    ClientAbortException.class,
+    //    ClientAbortException.class,
     /*@ExceptionHandler({HttpMediaTypeNotAcceptableException.class,MissingServletRequestParameterException.class,HttpRequestMethodNotSupportedException.class})
     public JsonResponse ignore(Exception ex) {
         return JsonResponse.fail(ex.getMessage());

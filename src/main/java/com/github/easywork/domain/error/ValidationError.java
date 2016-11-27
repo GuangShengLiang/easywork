@@ -11,9 +11,10 @@ public class ValidationError {
     private Object rejectedValue;
     private String message;
 
-    public ValidationError(){}
+    public ValidationError() {
+    }
 
-    public ValidationError(String field, Object rejectedValue, String message){
+    public ValidationError(String field, Object rejectedValue, String message) {
         this.field = field;
         this.rejectedValue = rejectedValue;
         this.message = message;

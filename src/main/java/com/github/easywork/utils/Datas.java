@@ -46,9 +46,11 @@ public class Datas {
             return results.iterator().next();
         }
     }
-    public static void when(boolean exp, Execute function){
+
+    public static void when(boolean exp, Execute function) {
         function.execute();
     }
+
     public static <T> T getOrDefault(T t, T defaultValue) {
         return Optional.ofNullable(t).orElse(defaultValue);
     }
@@ -68,6 +70,7 @@ public class Datas {
         });
         return set;
     }
+
     public static <V, K> Map<K, V> convertMap(Collection<V> collection, Function<V, K> function) {
         Map<K, V> map = Maps.newHashMapWithExpectedSize(collection.size());
         collection.forEach(e -> {
@@ -75,13 +78,15 @@ public class Datas {
         });
         return map;
     }
-    public static <V, K,T> Map<K, V> convertMap(Collection<T> collection, Function<T, K> keyFunction,Function<T,V> valueFunction) {
+
+    public static <V, K, T> Map<K, V> convertMap(Collection<T> collection, Function<T, K> keyFunction, Function<T, V> valueFunction) {
         Map<K, V> map = Maps.newHashMapWithExpectedSize(collection.size());
         collection.forEach(e -> {
             map.put(keyFunction.apply(e), valueFunction.apply(e));
         });
         return map;
     }
+
     public static <T> void exportTable(String fileName, HttpServletResponse response, List<String> header, List<T> data, Function<T, List> function) throws IOException {
 //      http  header
         response.setHeader("content-disposition", "attachment;filename=" + fileName);
@@ -90,12 +95,12 @@ public class Datas {
         String head = Joiner.on(",").useForNull("").join(header) + "\r";
         response.getOutputStream().write(head.getBytes());
 //        row data
-        data.forEach(t->{
+        data.forEach(t -> {
             String row = Joiner.on(",").useForNull("").join(function.apply(t)) + "\r";
             try {
                 response.getOutputStream().write(row.getBytes());
             } catch (IOException e) {
-                log.error("write response error",e);
+                log.error("write response error", e);
             }
 
         });

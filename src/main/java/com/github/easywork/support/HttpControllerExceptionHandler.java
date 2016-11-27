@@ -31,6 +31,7 @@ public class HttpControllerExceptionHandler {
         ex.getBindingResult().getFieldErrors().forEach(e -> response.addValidationError(e.getField(), e.getRejectedValue(), e.getDefaultMessage()));
         return response;
     }
+
     @ExceptionHandler(ServletException.class)
     public void paramValidExceptionHandler(ServletException ex) {
     }
@@ -56,7 +57,7 @@ public class HttpControllerExceptionHandler {
         return response;
     }
 
-//    ClientAbortException.class,
+    //    ClientAbortException.class,
     /*@ExceptionHandler({HttpMediaTypeNotAcceptableException.class,MissingServletRequestParameterException.class,HttpRequestMethodNotSupportedException.class})
     public JsonResponse ignore(Exception ex) {
         return JsonResponse.fail(ex.getMessage());
@@ -72,9 +73,9 @@ public class HttpControllerExceptionHandler {
     @ResponseBody
     public ResponseEntity baseExceptionHandler(BaseException ex) {
         int httpcode;
-        if (ex.getErrors().getCode() == 1){
+        if (ex.getErrors().getCode() == 1) {
             httpcode = HttpResponseCode.失败.code;
-        }else {
+        } else {
             httpcode = ex.getErrors().getCode();
         }
 

@@ -11,14 +11,16 @@ public class BaseException extends RuntimeException {
 
     protected Errors errors = new Errors();
 
-    public BaseException(String message){
+    public BaseException(String message) {
         super(message);
     }
-    public BaseException(int code, String message){
+
+    public BaseException(int code, String message) {
         super(message);
         this.errors.setCode(code);
     }
-    public BaseException(){
+
+    public BaseException() {
         super();
     }
 
@@ -26,11 +28,11 @@ public class BaseException extends RuntimeException {
         return errors;
     }
 
-    public void injectError(int code){
+    public void injectError(int code) {
         this.errors.setCode(code);
     }
 
-    public void injectError(int code, Object[] args){
+    public void injectError(int code, Object[] args) {
         this.errors.setCode(code);
         this.errors.setArgs(args);
     }

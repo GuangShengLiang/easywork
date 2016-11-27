@@ -21,9 +21,11 @@ public class HttpDataGridPageResponse<T> {
     public HttpDataGridPageResponse() {
 
     }
+
     public static <T> HttpDataGridPageResponse<T> success(PageResult<T> page) {
         return new HttpDataGridPageResponse(page.getData(), page.getTotal());
     }
+
     public static <T> HttpDataGridPageResponse<T> success(List<T> rows, long total) {
         return new HttpDataGridPageResponse(rows, total);
     }

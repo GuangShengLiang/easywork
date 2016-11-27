@@ -25,9 +25,11 @@ public class DataGridPageResponse<T> {
     public DataGridPageResponse() {
 
     }
+
     public static <T> DataGridPageResponse<T> success(PageResult<T> page) {
         return new DataGridPageResponse(JsonResponseCode.成功.code, page.getData(), null, page.getTotal());
     }
+
     public static <T> DataGridPageResponse<T> success(List<T> rows, long total) {
         return new DataGridPageResponse(JsonResponseCode.成功.code, rows, null, total);
     }

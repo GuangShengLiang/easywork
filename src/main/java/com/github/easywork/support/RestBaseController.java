@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by user on 2016/9/19.
  */
 @RestController
-@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestBaseController {
 }

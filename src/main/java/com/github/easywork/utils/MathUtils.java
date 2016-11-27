@@ -7,18 +7,19 @@ import java.text.NumberFormat;
  */
 public class MathUtils {
 
-    public static String getPercent(Integer a, Integer b){
-        if (a == null || b == null){
+    public static String getPercent(Integer a, Integer b) {
+        if (a == null || b == null) {
             return "0.00%";
         }
         NumberFormat format = NumberFormat.getPercentInstance();// 获取格式化类实例
         format.setMinimumFractionDigits(2);// 设置小数位
 //        float c = a;
 //        float d = b;
-        return format.format((float)a / (float)b);// 打印计算结果
+        return format.format((float) a / (float) b);// 打印计算结果
     }
-    public static String getPercent(Double a, Double b){
-        if (a == null || b == null){
+
+    public static String getPercent(Double a, Double b) {
+        if (a == null || b == null) {
             return "0.00%";
         }
         NumberFormat format = NumberFormat.getPercentInstance();// 获取格式化类实例
@@ -27,8 +28,8 @@ public class MathUtils {
         return format.format(a / b);// 打印计算结果
     }
 
-    public static String getPercent(Long a, Long b){
-        if (a == null || b == null){
+    public static String getPercent(Long a, Long b) {
+        if (a == null || b == null) {
             return "0.00%";
         }
         NumberFormat format = NumberFormat.getPercentInstance();// 获取格式化类实例

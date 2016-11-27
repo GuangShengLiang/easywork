@@ -17,7 +17,7 @@ public class ErrorMessage {
 
     }
 
-    public ErrorMessage(int code, String message){
+    public ErrorMessage(int code, String message) {
         this.code = code;
         this.message = message;
     }
