@@ -1,6 +1,7 @@
 package com.github.easywork.domain.error;
 
 
+import com.github.easywork.http.HttpResponseCode;
 import com.github.easywork.json.JsonResponseCode;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import lombok.Data;
 @Data
 public class Errors {
 
-    private int code = JsonResponseCode.失败.code;
+    private int code = HttpResponseCode.失败_前端展示.code;
 
     private Object[] args;
 

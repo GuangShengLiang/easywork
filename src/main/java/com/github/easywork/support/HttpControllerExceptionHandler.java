@@ -72,13 +72,7 @@ public class HttpControllerExceptionHandler {
     @ExceptionHandler(BaseException.class)
     @ResponseBody
     public ResponseEntity baseExceptionHandler(BaseException ex) {
-        int httpcode;
-        if (ex.getErrors().getCode() == 1) {
-            httpcode = HttpResponseCode.失败.code;
-        } else {
-            httpcode = ex.getErrors().getCode();
-        }
 
-        return ResponseEntity.status(httpcode).body(ex.getErrors().getMessage());
+        return ResponseEntity.status(ex.getErrors().getCode()).body(ex.getErrors().getMessage());
     }
 }
