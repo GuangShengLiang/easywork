@@ -2,11 +2,14 @@ package utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.easywork.utils.Datas;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import model.Person;
 import org.junit.Test;
 
+import java.util.LinkedHashSet;
 import java.util.Optional;
 
 /**
@@ -21,5 +24,13 @@ public class DatasTest {
         Optional.ofNullable(p.getId()).ifPresent(e->{p.setId(e);});
         Datas.when(true,()->p.setFirstName("lgs"));
        System.out.printf(JSONObject.toJSONString(p));
+    }
+    @Test
+    public void single(){
+        Datas.single(null);
+        Datas.single(Lists.newLinkedList());
+        Datas.single(new LinkedHashSet<>());
+        Datas.single(Lists.newArrayList());
+        String.format("%%s%","s");
     }
 }

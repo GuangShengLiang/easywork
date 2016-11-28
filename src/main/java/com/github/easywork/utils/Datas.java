@@ -19,20 +19,17 @@ import java.util.function.Function;
 @Slf4j
 public class Datas {
 
-    public static <T> T single(Collection<T> results) {
-        int size = results != null ? results.size() : 0;
-        if (size == 0) {
-            return null;
-        }
-        return results.iterator().next();
+    public static <T> T single(Iterable<T> iterable) {
+
+         return Optional.ofNullable(iterable).map(e->e.iterator()).filter(f->f.hasNext()).map(e->e.next()).orElse(null);
     }
 
-    public static <T> T singleRequired(Collection<T> results) {
-        int size = results != null ? results.size() : 0;
-        if (size == 0) {
+    public static <T> T singleRequired(Iterable<T> iterable) {
+        Iterator<T> iterator= iterable.iterator();
+        if (!iterator.hasNext()) {
             throw new BizException("not found data");
         }
-        return results.iterator().next();
+        return iterator.next();
 
     }
 
