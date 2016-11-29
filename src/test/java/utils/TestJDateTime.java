@@ -139,7 +139,7 @@ public class TestJDateTime {
         persons.add(p1);
         persons.add(p2);
 
-        List<Integer> list = Datas.convert(persons,(p)->p.getId());
+        List<Integer> list = Datas.newLinkedList(persons,(p)->p.getId());
         System.out.println(list);
         Runnable run = System.out::close;
         run.run();

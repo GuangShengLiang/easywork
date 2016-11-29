@@ -52,7 +52,7 @@ public class Datas {
         return Optional.ofNullable(t).orElse(defaultValue);
     }
 
-    public static <T, R> List<R> convert(Collection<T> collection, Function<T, R> function) {
+    public static <T, R> List<R> newLinkedList(Collection<T> collection, Function<T, R> function) {
         List<R> list = Lists.newLinkedList();
         collection.forEach(e -> {
             list.add(function.apply(e));
