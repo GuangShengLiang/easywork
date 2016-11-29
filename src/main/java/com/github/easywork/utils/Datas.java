@@ -60,7 +60,10 @@ public class Datas {
         return list;
     }
 
-    public static <T, R> Set<R> convertSet(Collection<T> collection, Function<T, R> function) {
+    public static <T, R> Set<R> newHashSet(Collection<T> collection, Function<T, R> function) {
+        if (collection == null){
+            return Sets.newHashSet();
+        }
         Set<R> set = Sets.newHashSetWithExpectedSize(collection.size());
         collection.forEach(e -> {
             set.add(function.apply(e));
@@ -68,7 +71,10 @@ public class Datas {
         return set;
     }
 
-    public static <V, K> Map<K, V> convertMap(Collection<V> collection, Function<V, K> function) {
+    public static <V, K> Map<K, V> newHashMap(Collection<V> collection, Function<V, K> function) {
+        if (collection == null){
+            return Maps.newHashMap();
+        }
         Map<K, V> map = Maps.newHashMapWithExpectedSize(collection.size());
         collection.forEach(e -> {
             map.put(function.apply(e), e);
@@ -76,7 +82,10 @@ public class Datas {
         return map;
     }
 
-    public static <V, K, T> Map<K, V> convertMap(Collection<T> collection, Function<T, K> keyFunction, Function<T, V> valueFunction) {
+    public static <V, K, T> Map<K, V> newHashMap(Collection<T> collection, Function<T, K> keyFunction, Function<T, V> valueFunction) {
+        if (collection == null){
+            return Maps.newHashMap();
+        }
         Map<K, V> map = Maps.newHashMapWithExpectedSize(collection.size());
         collection.forEach(e -> {
             map.put(keyFunction.apply(e), valueFunction.apply(e));
