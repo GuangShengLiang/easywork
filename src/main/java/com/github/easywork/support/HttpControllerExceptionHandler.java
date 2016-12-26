@@ -3,6 +3,7 @@ package com.github.easywork.support;
 import com.github.easywork.exception.BaseException;
 import com.github.easywork.http.HttpJsonValidationResponse;
 import com.github.easywork.http.HttpResponseCode;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,8 @@ import javax.servlet.ServletException;
 
 
 @ControllerAdvice()
+@Slf4j
 public class HttpControllerExceptionHandler {
-
-    private final static Logger log = LoggerFactory.getLogger(HttpControllerExceptionHandler.class);
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
@@ -66,7 +66,7 @@ public class HttpControllerExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String exceptionHandler(Exception ex) {
         log.error("server error ", ex);
-        return ex.getMessage();
+        return "服务异常";
     }
 
     @ExceptionHandler(BaseException.class)

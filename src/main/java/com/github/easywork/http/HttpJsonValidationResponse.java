@@ -10,7 +10,7 @@ import java.util.List;
  * Created by lgs on 16-5-31.
  */
 @Data
-public class HttpJsonValidationResponse extends HttpJsonResponse {
+public class HttpJsonValidationResponse{
 
     protected List<ValidationError> errors = Lists.newLinkedList();
 
