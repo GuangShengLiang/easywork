@@ -1,4 +1,4 @@
-package com.github.easywork.http;
+package com.github.easywork.rest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,18 +11,18 @@ import java.util.List;
  */
 @Data
 @AllArgsConstructor
-public class HttpJsonPageResponse<T> {
+public class RestPageResponse<T> {
 
     //返回数据
     protected List<T> data;
 
     protected long total;
 
-    public HttpJsonPageResponse() {
+    public RestPageResponse() {
 
     }
 
-    public static <T> HttpJsonPageResponse<T> success(List<T> rows, long total) {
-        return new HttpJsonPageResponse(rows, total);
+    public static <T> RestPageResponse<T> success(List<T> rows, long total) {
+        return new RestPageResponse(rows, total);
     }
 }

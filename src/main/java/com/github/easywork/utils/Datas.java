@@ -94,7 +94,7 @@ public class Datas {
     }
 
     public static <T> void exportTable(String fileName, HttpServletResponse response, List<String> header, List<T> data, Function<T, List> function) throws IOException {
-//      http  header
+//      rest  header
         response.setHeader("content-disposition", "attachment;filename=" + fileName);
         response.setContentType("application/octet-stream");
 //        table header

@@ -1,7 +1,7 @@
 package com.github.easywork.utils;
 
 import com.github.easywork.exception.BizException;
-import com.github.easywork.http.HttpResponseCode;
+import com.github.easywork.rest.RestResponseCode;
 
 import java.util.Collection;
 
@@ -24,7 +24,7 @@ public class Asserts {
     }
 
     public static void notNullMsg(final Object ref, final String field) {
-        notNull(ref, HttpResponseCode.失败_前端展示.code, "%s can't be null", field);
+        notNull(ref, RestResponseCode.业务异常.code, "%s can't be null", field);
     }
 
     public static void notNullMsg(final Object ref, final int code, final String field) {
@@ -32,7 +32,7 @@ public class Asserts {
     }
 
     public static void notNull(final Object ref, final String template, Object... args) {
-        notNull(ref, HttpResponseCode.失败_前端展示.code, template, args);
+        notNull(ref, RestResponseCode.业务异常.code, template, args);
     }
 
     /**

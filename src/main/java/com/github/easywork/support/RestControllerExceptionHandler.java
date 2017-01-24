@@ -1,11 +1,8 @@
 package com.github.easywork.support;
 
 import com.github.easywork.exception.BaseException;
-import com.github.easywork.http.HttpJsonValidationResponse;
-import com.github.easywork.http.HttpResponseCode;
+import com.github.easywork.rest.RestValidationResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
@@ -21,13 +18,13 @@ import javax.servlet.ServletException;
 
 @ControllerAdvice()
 @Slf4j
-public class HttpControllerExceptionHandler {
+public class RestControllerExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public HttpJsonValidationResponse paramValidExceptionHandler(MethodArgumentNotValidException ex) {
-        HttpJsonValidationResponse response = new HttpJsonValidationResponse();
+    public RestValidationResponse paramValidExceptionHandler(MethodArgumentNotValidException ex) {
+        RestValidationResponse response = new RestValidationResponse();
         ex.getBindingResult().getFieldErrors().forEach(e -> response.addValidationError(e.getField(), e.getRejectedValue(), e.getDefaultMessage()));
         return response;
     }
@@ -51,8 +48,8 @@ public class HttpControllerExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public HttpJsonValidationResponse bindException(BindException ex) {
-        HttpJsonValidationResponse response = new HttpJsonValidationResponse();
+    public RestValidationResponse bindException(BindException ex) {
+        RestValidationResponse response = new RestValidationResponse();
         ex.getBindingResult().getFieldErrors().forEach(e -> response.addValidationError(e.getField(), e.getRejectedValue(), e.getDefaultMessage()));
         return response;
     }
