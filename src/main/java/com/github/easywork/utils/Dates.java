@@ -36,7 +36,7 @@ public class Dates {
      * @param format 格式
      * @return
      */
-    public static String formatDate(Date date, String format) {
+    public static String format(Date date, String format) {
         JDateTime jdt = new JDateTime(date);
         return jdt.toString(format);
     }
@@ -47,8 +47,8 @@ public class Dates {
      * @param date
      * @return YYYY-MM-DD
      */
-    public static String formatDate(Date date) {
-        return formatDate(date, YYYY_MM_DD);
+    public static String format(Date date) {
+        return format(date, YYYY_MM_DD);
     }
 
     /**
@@ -107,7 +107,7 @@ public class Dates {
      * @param days 加减天数
      * @return YYYY-MM-DD
      */
-    public static String getDay(Date date, int days) {
+    public static String addDay(Date date, int days) {
         JDateTime jdt = new JDateTime(date);
         jdt.addDay(days);
         return jdt.toString(YYYY_MM_DD);
@@ -119,7 +119,7 @@ public class Dates {
      * @param days 加减天数
      * @return YYYY-MM-DD
      */
-    public static String getDay(int days) {
+    public static String addDay(int days) {
         JDateTime jdt = new JDateTime();
         jdt.addDay(days);
         return jdt.toString(YYYY_MM_DD);
@@ -131,7 +131,7 @@ public class Dates {
      * @param date
      * @return YYYY-MM-DD
      */
-    public static String getDay(Date date, int years, int months, int days) {
+    public static String addDay(Date date, int years, int months, int days) {
         JDateTime jdt = new JDateTime(date);
         jdt.add(years, months, days);
         return jdt.toString(YYYY_MM_DD);
@@ -143,7 +143,7 @@ public class Dates {
      * @param date
      * @return date
      */
-    public static Date getDate(Date date, int years, int months, int days) {
+    public static Date add(Date date, int years, int months, int days) {
         JDateTime jdt = new JDateTime(date);
         jdt.add(years, months, days);
         return jdt.convertToDate();
@@ -156,7 +156,7 @@ public class Dates {
      * @param days 加减天数
      * @return
      */
-    public static Date getDate(Date date, int days) {
+    public static Date add(Date date, int days) {
         return new JDateTime(date).addDay(days).convertToDate();
 
     }

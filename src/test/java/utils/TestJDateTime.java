@@ -123,7 +123,7 @@ public class TestJDateTime {
     @Test
     public void testGetDay(){
         System.out.println(Integer.MAX_VALUE);
-        System.out.println(Dates.getDay(new Date(),-1,0,1));
+        System.out.println(Dates.addDay(new Date(),-1,0,1));
         System.out.println(Dates.getYear(new Date(),0,1));
     }
 
