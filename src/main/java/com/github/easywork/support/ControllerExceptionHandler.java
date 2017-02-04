@@ -4,8 +4,7 @@ import com.github.easywork.exception.BaseException;
 import com.github.easywork.json.JsonResponse;
 import com.github.easywork.json.JsonResponseCode;
 import com.github.easywork.json.JsonValidationResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -15,9 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @ControllerAdvice()
+@Slf4j
 public class ControllerExceptionHandler {
 
-    private final static Logger log = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
