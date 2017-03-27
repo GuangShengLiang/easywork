@@ -2,6 +2,7 @@ package com.github.easywork.utils;
 
 import com.github.easywork.exception.BizException;
 import com.github.easywork.interfaces.Execute;
+import com.github.easywork.json.JsonResponse;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -18,6 +19,8 @@ import java.util.function.Function;
  */
 @Slf4j
 public class Datas {
+
+    public final static Object empty = new Object();
 
     public static <T> T single(Iterable<T> iterable) {
 

@@ -161,4 +161,15 @@ public class Dates {
 
     }
 
+    /**
+     * 获取日期
+     *
+     * @param days 加减天数
+     * @return
+     */
+    public static Date add(int days) {
+        return new JDateTime().addDay(days).convertToDate();
+
+    }
+
 }

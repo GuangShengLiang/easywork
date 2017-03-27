@@ -38,7 +38,4 @@ public class DataGridPageResponse<T> {
         return new DataGridPageResponse(JsonResponseCode.失败.code, null, msg, 0);
     }
 
-    public boolean isSuccess() {
-        return JsonResponseCode.成功.code == this.code;
-    }
 }

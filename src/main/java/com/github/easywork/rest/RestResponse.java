@@ -17,12 +17,6 @@ public class RestResponse<T extends Object> {
 
     public RestResponse(T data, String msg) {
         this.data = data;
-
-    }
-
-
-    public static <T> RestResponse<T> success() {
-        return success(null);
     }
 
     public static <T> RestResponse<T> success(T data) {

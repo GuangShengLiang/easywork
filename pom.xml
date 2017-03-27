@@ -100,8 +100,6 @@
         <snapshotRepository>
             <id>snapshots</id>
             <name>Internal Snapshots</name>
-            <!--<url>http://nexus.bilibili.co/content/groups/public</url>-->
-
             <url>http://nexus.maven.co/content/groups/public-snapshots</url>
         </snapshotRepository>
     </distributionManagement>

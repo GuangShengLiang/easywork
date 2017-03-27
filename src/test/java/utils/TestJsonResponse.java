@@ -14,7 +14,7 @@ public class TestJsonResponse {
         Person p1 = response1.getData();
         JsonResponse<Person> response2 = JsonResponse.success(new Person());
         Person p2 = response2.getData();
-        JsonResponse<Person> response3 = JsonResponse.success();
+        JsonResponse<Person> response3 = JsonResponse.success;
         Person p3 = response3.getData();
         JsonResponse<Person> response4 = JsonResponse.success(null);
         Person p4 = response4.getData();

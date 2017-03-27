@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class JsonResponse<T extends Object> {
 
+    public final static JsonResponse SUCCESS = new JsonResponse(JsonResponseCode.成功.code, null, null);
     //编码
     protected int code;
     //返回数据
@@ -29,10 +30,6 @@ public class JsonResponse<T extends Object> {
         this.code = code;
     }
 
-    public static <T> JsonResponse<T> success() {
-        return success(null);
-    }
-
     public static <T> JsonResponse<T> success(T data) {
         return new JsonResponse(JsonResponseCode.成功.code, data, null);
     }
@@ -45,7 +42,4 @@ public class JsonResponse<T extends Object> {
         return new JsonResponse(code, null, msg);
     }
 
-    public boolean isSuccess() {
-        return JsonResponseCode.成功.code == this.code;
-    }
 }

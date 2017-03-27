@@ -23,14 +23,6 @@ public class Asserts {
         }
     }
 
-    public static void notNullMsg(final Object ref, final String field) {
-        notNull(ref, RestResponseCode.业务异常.code, "%s can't be null", field);
-    }
-
-    public static void notNullMsg(final Object ref, final int code, final String field) {
-        notNull(ref, code, "%s can't be null", field);
-    }
-
     public static void notNull(final Object ref, final String template, Object... args) {
         notNull(ref, RestResponseCode.业务异常.code, template, args);
     }
