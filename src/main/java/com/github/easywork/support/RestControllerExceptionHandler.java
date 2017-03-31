@@ -45,18 +45,21 @@ public class RestControllerExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+    @ResponseBody
     public String paramValidExceptionHandler(HttpMessageNotReadableException ex) {
         return ex.getMessage();
     }
 
     @ExceptionHandler({HttpMediaTypeNotAcceptableException.class})
     @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+    @ResponseBody
     public String httpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex) {
         return ex.getMessage();
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    @ResponseBody
     public String httpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex) {
         return ex.getMessage();
     }
@@ -64,6 +67,7 @@ public class RestControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
     public String exceptionHandler(Exception ex) {
         log.error("server error ", ex);
         return "服务异常";
