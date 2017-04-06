@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.UUID;
 
 
 @ControllerAdvice()
@@ -30,6 +31,7 @@ public class RestControllerExceptionHandler {
         ex.getBindingResult().getFieldErrors().forEach(e -> response.addValidationError(e.getField(), e.getRejectedValue(), e.getDefaultMessage()));
         return response;
     }
+
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
@@ -69,8 +71,9 @@ public class RestControllerExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public String exceptionHandler(Exception ex) {
-        log.error("server error ", ex);
-        return "服务异常";
+        String u = UUID.randomUUID().toString();
+        log.error("server error {}", u , ex);
+        return "服务异常" + u;
     }
 
     @ExceptionHandler(BaseException.class)
