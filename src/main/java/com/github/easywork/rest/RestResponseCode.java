@@ -9,7 +9,7 @@ public enum RestResponseCode {
     未登录(HttpStatus.UNAUTHORIZED.value()),
     未授权(HttpStatus.FORBIDDEN.value()),
     请求量太多(HttpStatus.TOO_MANY_REQUESTS.value()),
-    业务异常(551);
+    业务异常(1000);
 
     public final int code;
 

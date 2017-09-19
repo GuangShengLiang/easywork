@@ -2,6 +2,7 @@ package utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.easywork.json.JsonPageResponse;
+import com.github.easywork.utils.MathUtils;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
@@ -78,6 +79,13 @@ public class TestGuava {
 //        System.out.println(BigDecimal.valueOf(10).divide(new BigDecimal("0"),2, BigDecimal.ROUND_HALF_UP));
         System.out.println(4/ 6);
 
+    }
+
+    @Test
+    public void testP(){
+
+        System.out.println(MathUtils.getPercentInt(1,3));
+        System.out.println(MathUtils.getPercent(1,0));
     }
 
 }
