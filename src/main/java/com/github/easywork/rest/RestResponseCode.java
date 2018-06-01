@@ -2,9 +2,6 @@ package com.github.easywork.rest;
 
 import org.springframework.http.HttpStatus;
 
-/**
- * Created by lgs on 16-5-31.
- */
 public enum RestResponseCode {
 
     成功(200),

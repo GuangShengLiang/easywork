@@ -2,10 +2,6 @@ package com.github.easywork.rest;
 
 import lombok.Data;
 
-/**
- * @Author lgs
- * @Date 15-5-11 上午11:06
- */
 @Data
 public class RestResponse<T extends Object> {
 

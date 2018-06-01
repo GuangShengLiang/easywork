@@ -5,10 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * @Author lgs
- * @Date 15-12-9 上午11:41
- */
 @Data
 @AllArgsConstructor
 public class JsonPageResponse<T> {

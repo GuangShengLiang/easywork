@@ -4,10 +4,6 @@ package com.github.easywork.domain.error;
 import com.github.easywork.rest.RestResponseCode;
 import lombok.Data;
 
-/**
- * @Author lgs
- * @Date 15-7-16 下午5:19
- */
 @Data
 public class Errors {
 

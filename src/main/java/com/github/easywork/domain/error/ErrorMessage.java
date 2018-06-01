@@ -2,10 +2,6 @@ package com.github.easywork.domain.error;
 
 import lombok.Data;
 
-/**
- * @Author lgs
- * @Date 15-7-14 下午5:58
- */
 @Data
 public class ErrorMessage {
 

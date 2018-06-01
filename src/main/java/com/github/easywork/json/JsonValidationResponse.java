@@ -6,9 +6,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * Created by lgs on 16-5-31.
- */
 @Data
 public class JsonValidationResponse extends JsonResponse {
 

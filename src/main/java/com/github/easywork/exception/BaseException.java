@@ -3,10 +3,6 @@ package com.github.easywork.exception;
 
 import com.github.easywork.domain.error.Errors;
 
-/**
- * @Author lgs
- * @Date 15-5-19 下午5:38
- */
 public class BaseException extends RuntimeException {
 
     protected Errors errors = new Errors();

@@ -2,9 +2,6 @@ package com.github.easywork.domain.error;
 
 import lombok.Data;
 
-/**
- * Created by lgs on 16-5-31.
- */
 @Data
 public class ValidationError {
     private String field;

@@ -6,9 +6,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * Created by user on 2016/11/10.
- */
 @Data
 @AllArgsConstructor
 public class RestDataGridPageResponse<T> {
