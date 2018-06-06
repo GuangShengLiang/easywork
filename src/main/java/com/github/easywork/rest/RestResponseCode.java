@@ -9,7 +9,8 @@ public enum RestResponseCode {
     未授权(HttpStatus.FORBIDDEN.value()),
     请求量太多(HttpStatus.TOO_MANY_REQUESTS.value()),
     已删除(HttpStatus.GONE.value()),
-    业务异常(551),
+    //600～999号段: 业务异常
+    业务异常(600),
     已创建(HttpStatus.CREATED.value());
     public final int code;
 

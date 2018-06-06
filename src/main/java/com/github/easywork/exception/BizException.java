@@ -14,4 +14,7 @@ public class BizException extends BaseException {
         super(code, message);
     }
 
+    public BizException(int httpStatus, int code, String message) {
+        super(httpStatus, code, message);
+    }
 }

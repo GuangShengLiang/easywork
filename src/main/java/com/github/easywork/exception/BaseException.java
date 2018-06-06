@@ -1,11 +1,12 @@
 package com.github.easywork.exception;
 
-
-import com.github.easywork.domain.error.Errors;
+import com.github.easywork.rest.RestResponseCode;
 
 public class BaseException extends RuntimeException {
+    //http status
+    protected int httpStatus = RestResponseCode.业务异常.code;
 
-    protected Errors errors = new Errors();
+    protected int code;
 
     public BaseException(String message) {
         super(message);
@@ -13,23 +14,23 @@ public class BaseException extends RuntimeException {
 
     public BaseException(int code, String message) {
         super(message);
-        this.errors.setCode(code);
+        this.code = code;
+    }
+
+    public BaseException(int httpStatus, int code, String message) {
+        this(code, message);
+        this.httpStatus = httpStatus;
     }
 
     public BaseException() {
         super();
     }
 
-    public Errors getErrors() {
-        return errors;
+    public int getCode() {
+        return this.code;
     }
 
-    public void injectError(int code) {
-        this.errors.setCode(code);
-    }
-
-    public void injectError(int code, Object[] args) {
-        this.errors.setCode(code);
-        this.errors.setArgs(args);
+    public int getHttpStatus(){
+        return httpStatus;
     }
 }

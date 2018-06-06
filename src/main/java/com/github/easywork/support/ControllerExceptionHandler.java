@@ -6,7 +6,6 @@ import com.github.easywork.json.JsonValidationResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -60,7 +59,7 @@ public class ControllerExceptionHandler implements ResponseBodyAdvice<Object> {
     @ExceptionHandler(BaseException.class)
     @ResponseBody
     protected JsonResponse baseException(BaseException ex) {
-        return JsonResponse.fail(ex.getErrors().getCode(), ex.getMessage());
+        return JsonResponse.fail(ex.getCode(), ex.getMessage());
     }
 
     @ExceptionHandler({HttpMessageNotReadableException.class, HttpMediaTypeNotAcceptableException.class})

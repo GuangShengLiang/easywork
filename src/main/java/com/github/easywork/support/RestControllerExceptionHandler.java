@@ -1,6 +1,8 @@
 package com.github.easywork.support;
 
 import com.github.easywork.exception.BaseException;
+import com.github.easywork.rest.RestResponse;
+import com.github.easywork.rest.RestResponseCode;
 import com.github.easywork.rest.RestValidationResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.ClientAbortException;
@@ -72,8 +74,7 @@ public class RestControllerExceptionHandler {
     @ExceptionHandler(BaseException.class)
     @ResponseBody
     public ResponseEntity baseExceptionHandler(BaseException ex) {
-
-        return ResponseEntity.status(ex.getErrors().getCode()).body(ex.getErrors().getMessage());
+        return ResponseEntity.status(ex.getHttpStatus()).body(RestResponse.fail(ex.getCode(),ex.getMessage()));
     }
 
     @ExceptionHandler({ClientAbortException.class})
