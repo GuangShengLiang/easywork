@@ -8,7 +8,6 @@ target
 # IntelliJ IDEA work
 *.idea
 *.iml
-.idea/
 *.ipr
 *.iws
 atlassian-ide-plugin.xml
