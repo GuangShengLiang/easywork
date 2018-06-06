@@ -41,7 +41,7 @@ public class JsonResponse<T extends Object> {
         return new JsonResponse(code, null, msg);
     }
 
-    public boolean isSuccess() {
+    public boolean statusSuccess() {
         return JsonResponseCode.成功.code == this.code;
     }
 }
