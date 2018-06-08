@@ -17,8 +17,11 @@ public class RestResponse {
         return new RestResponse(code, msg);
     }
 
+    public static RestResponse fail(RestCodeEnum rest) {
+        return new RestResponse(rest.code, rest.name());
+    }
     public static boolean isBizFail(int httpStatus) {
-        if (httpStatus >= RestResponseCode.业务异常.code) {
+        if (httpStatus >= RestCodeEnum.业务异常.code) {
             return true;
         }
         return false;

@@ -1,13 +1,13 @@
 package com.github.easywork.domain.error;
 
 
-import com.github.easywork.rest.RestResponseCode;
+import com.github.easywork.rest.RestCodeEnum;
 import lombok.Data;
 
 @Data
 public class Errors {
 
-    private int code = RestResponseCode.业务异常.code;
+    private int code = RestCodeEnum.业务异常.code;
 
     private Object[] args;
 

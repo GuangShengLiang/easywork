@@ -2,7 +2,7 @@ package com.github.easywork.rest;
 
 import org.springframework.http.HttpStatus;
 
-public enum RestResponseCode {
+public enum RestCodeEnum implements ErrorCode {
 
     成功(200),
     未登录(HttpStatus.UNAUTHORIZED.value()),
@@ -12,10 +12,17 @@ public enum RestResponseCode {
     //600～999号段: 业务异常
     业务异常(600),
     已创建(HttpStatus.CREATED.value());
+
     public final int code;
 
-    RestResponseCode(int code) {
+    RestCodeEnum(int code) {
         this.code = code;
     }
 
+    public String getMessage(){
+        return name();
+    }
+    public int getCode(){
+        return code;
+    }
 }

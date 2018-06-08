@@ -1,7 +1,8 @@
 package com.github.easywork.utils;
 
 import com.github.easywork.exception.BizException;
-import com.github.easywork.rest.RestResponseCode;
+import com.github.easywork.rest.ErrorCode;
+import com.github.easywork.rest.RestCodeEnum;
 
 import java.util.Collection;
 
@@ -23,8 +24,14 @@ public class Asserts {
         }
     }
 
+    public static void notNull(final Object ref, ErrorCode err) {
+        if (ref == null) {
+            throw new BizException(err.getCode(), err.getMessage());
+        }
+    }
+
     public static void notNullMsg(final Object ref, final String field) {
-        notNull(ref, RestResponseCode.业务异常.code, "%s can't be null", field);
+        notNull(ref, RestCodeEnum.业务异常.code, "%s can't be null", field);
     }
 
     public static void notNullMsg(final Object ref, final int code, final String field) {
@@ -32,7 +39,7 @@ public class Asserts {
     }
 
     public static void notNull(final Object ref, final String template, Object... args) {
-        notNull(ref, RestResponseCode.业务异常.code, template, args);
+        notNull(ref, RestCodeEnum.业务异常.code, template, args);
     }
 
     /**

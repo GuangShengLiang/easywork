@@ -1,10 +1,10 @@
 package com.github.easywork.exception;
 
-import com.github.easywork.rest.RestResponseCode;
+import com.github.easywork.rest.RestCodeEnum;
 
 public class BaseException extends RuntimeException {
     //http status
-    protected int httpStatus = RestResponseCode.业务异常.code;
+    protected int httpStatus = RestCodeEnum.业务异常.code;
 
     protected int code;
 
