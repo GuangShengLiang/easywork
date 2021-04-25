@@ -1,6 +1,6 @@
 package com.github.easywork.rest;
 
-public interface ErrorCode {
+public interface IErrorCode {
     int getCode();
     String getMessage();
 }

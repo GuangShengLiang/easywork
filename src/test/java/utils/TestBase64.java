@@ -27,7 +27,8 @@ public class TestBase64 {
     }
     @Test
     public void testMd5(){
-
+        Short a = null;
+        System.out.println(String.valueOf(a));
     }
 
     public <S, D> void a(List<S> list, final Function<S,D> function){

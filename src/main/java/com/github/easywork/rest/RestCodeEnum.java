@@ -2,7 +2,7 @@ package com.github.easywork.rest;
 
 import org.springframework.http.HttpStatus;
 
-public enum RestCodeEnum implements ErrorCode {
+public enum RestCodeEnum implements IErrorCode {
 
     成功(200),
     未登录(HttpStatus.UNAUTHORIZED.value()),

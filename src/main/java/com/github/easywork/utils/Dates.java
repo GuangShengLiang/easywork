@@ -13,6 +13,8 @@ public class Dates {
 
     public final static String YYYY_MM_DD_hh_mm_ss = "YYYY-MM-DD hh:mm:ss";
 
+    private final static String[] week = {"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
+
     /**
      * 字符串转日期
      * "2003-11-24 23:18:38.173"
@@ -75,6 +77,16 @@ public class Dates {
         return jdt.addDay(dayOfMonth - jdt.getDayOfMonth()).toString(YYYY_MM_DD);
     }
 
+    /**
+     * 获取月的第几天
+     *
+     * @param date       日期
+     * @return YYYY-MM-DD
+     */
+    public static String dayOfWeek(Date date) {
+        JDateTime jdt = new JDateTime(date);
+        return week[jdt.getDayOfWeek()-1];
+    }
 
     /**
      * 获取年

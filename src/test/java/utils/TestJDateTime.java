@@ -128,6 +128,11 @@ public class TestJDateTime {
     }
 
     @Test
+    public void testDayOfWeek(){
+        System.out.println(Dates.dayOfWeek(new Date()));
+    }
+
+    @Test
     public void testDatas(){
         System.out.println(Datas.getOrDefault(null,"string"));
         System.out.println(Datas.getOrDefault("wwww","string"));
