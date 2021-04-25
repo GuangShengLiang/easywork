@@ -12,6 +12,7 @@ public class Dates {
     public final static String YYYY_MM_DD = "YYYY-MM-DD";
 
     public final static String YYYY_MM_DD_hh_mm_ss = "YYYY-MM-DD hh:mm:ss";
+    public final static String[] week = {"周一","周二","周三","周四","周五","周六","周日"};
 
     /**
      * 字符串转日期
@@ -61,6 +62,11 @@ public class Dates {
     public static String getDayOfWeek(Date date, int dayOfWeek) {
         JDateTime jdt = new JDateTime(date);
         return jdt.addDay(dayOfWeek - jdt.getDayOfWeek()).toString(YYYY_MM_DD);
+    }
+    public static String dayOfWeek(Date date){
+
+        JDateTime jdt = new JDateTime(date);
+        return week[jdt.getDayOfWeek()-1];
     }
 
     /**

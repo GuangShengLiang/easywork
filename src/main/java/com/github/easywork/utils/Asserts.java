@@ -1,7 +1,7 @@
 package com.github.easywork.utils;
 
 import com.github.easywork.exception.BizException;
-import com.github.easywork.rest.ErrorCode;
+import com.github.easywork.rest.IErrorCode;
 import com.github.easywork.rest.RestCodeEnum;
 
 import java.util.Collection;
@@ -24,7 +24,7 @@ public class Asserts {
         }
     }
 
-    public static void notNull(final Object ref, ErrorCode err) {
+    public static void notNull(final Object ref, IErrorCode err) {
         if (ref == null) {
             throw new BizException(err.getCode(), err.getMessage());
         }
@@ -56,6 +56,12 @@ public class Asserts {
     public static void notEmpty(final Collection collection, final int code, final String template, Object... args) {
         if (collection == null || collection.isEmpty()) {
             throw new BizException(code, String.format(template, args));
+        }
+    }
+
+    public static void whenThrow(final boolean expression,IErrorCode err) {
+        if (expression) {
+            throw new BizException(err.getCode(),err.getMessage());
         }
     }
 
