@@ -5,12 +5,22 @@ import lombok.Data;
 @Data
 public class JsonResponse<T extends Object> {
 
-    //编码
-    protected int code;
-    //返回数据
-    protected T data;
-    //信息
-    protected String msg;
+    /**
+     * 状态码：成功(0)，失败（非0)
+     *
+     * @mock 0
+     */
+    private int code;
+    /**
+     * 数据
+     */
+    private T data;
+    /**
+     * 错误信息
+     *
+     * @mock ok
+     */
+    private String msg;
 
     public JsonResponse() {
     }
@@ -41,7 +51,4 @@ public class JsonResponse<T extends Object> {
         return new JsonResponse(code, null, msg);
     }
 
-    public boolean statusSuccess() {
-        return JsonResponseCode.成功.code == this.code;
-    }
 }

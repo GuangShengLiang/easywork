@@ -12,6 +12,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.util.PathMatcher;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -33,10 +35,14 @@ public class JsonExceptionHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+        PathMatcher matcher = new AntPathMatcher();
+        if (matcher.match("/api/*/itn/**", serverHttpRequest.getURI().getPath())) {
+            return o;
+        }
         return o instanceof JsonResponse ? o : JsonResponse.success(o);
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public JsonValidationResponse paramValidExceptionHandler(MethodArgumentNotValidException ex) {
@@ -49,7 +55,7 @@ public class JsonExceptionHandler implements ResponseBodyAdvice<Object> {
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public JsonResponse bindException(BindException ex) {
+    public JsonValidationResponse bindException(BindException ex) {
         JsonValidationResponse response = new JsonValidationResponse();
         response.setCode(HttpStatus.BAD_REQUEST.value());
         ex.getBindingResult().getFieldErrors().forEach(e -> response.addValidationError(e.getField(), e.getRejectedValue(), e.getDefaultMessage()));
@@ -81,7 +87,7 @@ public class JsonExceptionHandler implements ResponseBodyAdvice<Object> {
     @ResponseBody
     public JsonResponse exceptionHandler(Exception ex) {
         log.error("server error ", ex);
-        return JsonResponse.fail("服务异常");
+        return JsonResponse.fail(ex.getMessage());
     }
 
     @ExceptionHandler({ClientAbortException.class})

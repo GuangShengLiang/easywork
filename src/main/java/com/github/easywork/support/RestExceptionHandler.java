@@ -15,13 +15,14 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 
 @ControllerAdvice()
 @Slf4j
 public class RestExceptionHandler {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public RestValidationResponse methodArgumentNotValidException(MethodArgumentNotValidException ex) {
